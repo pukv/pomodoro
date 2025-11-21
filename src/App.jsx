@@ -1,3 +1,9 @@
+import { InfoModal } from "./components/InfoModal.jsx";
+
 export default function App() {
-  return <h1>React Connected! Project on it's way!</h1>;
+  return (
+    <>
+      <InfoModal />
+    </>
+  );
 }
