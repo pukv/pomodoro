@@ -2,8 +2,27 @@ import "./PomodoroTimer.css";
 import { useState, useEffect } from "react";
 
 export default function PomodoroTimer() {
-  const [timer, setTimer] = useState(1500);
+  const modeSettings = {
+    pomodoro: {
+      duration: 1500,
+      color: "#d95550",
+      label: "Pomodoro",
+    },
+    short: {
+      duration: 300,
+      color: "#4fa3a5",
+      label: "Short Break",
+    },
+    long: {
+      duration: 900,
+      color: "#457ca3",
+      label: "Long Break",
+    },
+  };
+
+  const [timer, setTimer] = useState(modeSettings.pomodoro.duration);
   const [isRunning, setIsRunning] = useState(false);
+  const [mode, setMode] = useState("pomodoro");
 
   useEffect(() => {
     if (!isRunning) return;
@@ -21,14 +40,38 @@ export default function PomodoroTimer() {
     return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
   }
 
+  function handleModeChange(newMode) {
+    setMode(newMode);
+    setTimer(modeSettings[newMode].duration);
+    setIsRunning(false);
+  }
+
   return (
-    <div className="timer--container">
+    <div
+      className="timer--container"
+      style={{ backgroundColor: modeSettings[mode].color }}
+    >
       <div className="controls">
-        <button className="pomodoro--start">Pomodoro</button>
-        <button className="pomodoro--short-break">Short Break</button>
-        <button className="pomodoro--long-break">Long Break</button>
+        <button
+          className={mode === "pomodoro" ? "control-btn active" : "control-btn"}
+          onClick={() => handleModeChange("pomodoro")}
+        >
+          Pomodoro
+        </button>
+        <button
+          className={mode === "short" ? "control-btn active" : "control-btn"}
+          onClick={() => handleModeChange("short")}
+        >
+          Short Break
+        </button>
+        <button
+          className={mode === "long" ? "control-btn active" : "control-btn"}
+          onClick={() => handleModeChange("long")}
+        >
+          Long Break
+        </button>
       </div>
-      <h2 className="mode-label">Pomodoro</h2>
+      <h2 className="mode-label">{modeSettings[mode].label}</h2>
       <div className="timer--main">
         <p className="timer-display">{formatTime(timer)}</p>
         <div className="timer-buttons">
@@ -45,9 +88,6 @@ export default function PomodoroTimer() {
             Reset
           </button>
         </div>
-      </div>
-      <div className="progress-bar">
-        <div className="progress-fill"></div>
       </div>
       <div className="session-stats">
         <p>
