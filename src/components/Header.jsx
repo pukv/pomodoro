@@ -1,3 +1,5 @@
+import "./Header.css";
+
 export default function Header() {
   return (
     <header>
@@ -10,7 +12,9 @@ export default function Header() {
           <li>
             <button>Toggle Theme</button>
           </li>
-          <li>Settings</li>
+          <li>
+            <button>Settings</button>
+          </li>
         </ul>
       </nav>
     </header>
