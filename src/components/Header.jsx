@@ -1,13 +1,15 @@
 import "./Header.css";
 
-export default function Header() {
+export default function Header({ onInfoClick }) {
   return (
     <header>
       <nav>
         <ul>
           <li>🍅 Pomodoro Productivity App</li>
           <li>
-            <button>How Pomodoro works</button>
+            <button className="info--button" onClick={onInfoClick}>
+              How Pomodoro works
+            </button>
           </li>
           <li>
             <button>Toggle Theme</button>
