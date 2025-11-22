@@ -1,21 +1,64 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 90;
+}
+
 .info-modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  width: clamp(320px, 60vw, 700px);
-  height: clamp(300px, 60vh, 700px);
-
-  padding: 2rem;
   background: #fff;
+  width: min(90%, 700px);
+  max-height: 85vh;
+  padding: 2rem;
   border-radius: 12px;
   overflow-y: auto;
+  z-index: 100;
+  animation: fadeIn 0.25s ease-out;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
 
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  animation: fadeIn 0.2s ease-out;
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+  color: #444;
+  transition: opacity 0.2s ease;
+}
 
+.close-btn:hover {
+  opacity: 0.6;
+}
+
+.info-modal h1 {
+  font-size: clamp(1.7rem, 2.5vw, 2.3rem);
+  margin-bottom: 1rem;
   text-align: center;
+}
+
+.info-modal h3 {
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  margin-top: 1.5rem;
+  margin-bottom: 0.6rem;
+}
+
+.info-modal p,
+.info-modal li {
+  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+  line-height: 1.6;
+}
+
+.info-modal ul,
+.info-modal ol {
+  padding-left: 1.2rem;
 }
 
 @keyframes fadeIn {
@@ -27,76 +70,4 @@
     opacity: 1;
     transform: translate(-50%, -50%);
   }
-}
-
-.info-modal h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-
-.info-modal h3 {
-  font-size: 1.4rem;
-  margin-top: 1.5rem;
-  margin-bottom: 0.5rem;
-}
-
-.info-modal p,
-.info-modal li {
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: start;
-}
-
-.info-modal p:last-child {
-  margin-bottom: 1rem;
-}
-
-/* Small tablets & mobile */
-@media (max-width: 600px) {
-  .info-modal {
-    padding: 1.5rem;
-  }
-
-  .info-modal h1 {
-    font-size: 1.8rem;
-  }
-
-  .info-modal h3 {
-    font-size: 1.2rem;
-  }
-
-  .info-modal p,
-  .info-modal li {
-    font-size: 0.95rem;
-  }
-}
-
-/* Very small phones */
-@media (max-width: 400px) {
-  .info-modal {
-    padding: 1rem;
-  }
-
-  .info-modal h1 {
-    font-size: 1.6rem;
-  }
-}
-
-.info-modal h1 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-}
-
-.info-modal h3 {
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-}
-
-.info-modal p,
-.info-modal li {
-  font-size: clamp(0.9rem, 2vw, 1rem);
-}
-
-.overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
 }
