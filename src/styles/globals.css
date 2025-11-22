@@ -3,9 +3,9 @@
 :root {
   --font-family: "Inter", sans-serif;
   --font-size-base: 16px;
+  --transition-fast: 0.25s ease;
 
   --color-bg: #f7f7f7;
-  --color-text: #1a1a1a;
   --color-accent: #e74c3c;
   --color-muted: #666;
 
@@ -36,9 +36,8 @@ html {
 body {
   font-family: var(--font-family);
   background-color: var(--color-bg);
-  color: var(--color-text);
   line-height: 1.5;
-
+  transition: background-color var(--transition-fast);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -98,4 +97,10 @@ a {
 
 .transition {
   transition: all 0.2s ease-in-out;
+}
+
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }

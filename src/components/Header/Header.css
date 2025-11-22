@@ -1,8 +1,7 @@
-header {
+.app-header {
   width: 100%;
-  background: var(--color-bg);
   padding: 1rem 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
 nav {
@@ -19,7 +18,7 @@ nav ul {
   gap: 1.5rem;
 }
 
-nav ul li:first-child {
+.logo {
   font-size: 1.4rem;
   font-weight: 600;
   display: flex;
@@ -27,29 +26,20 @@ nav ul li:first-child {
   gap: 0.3rem;
 }
 
-nav button {
-  background: #eaeaea;
+/* Buttons that match Pomodoro style */
+.nav-btn {
+  background: rgba(255, 255, 255, 0.15);
   border: none;
-  padding: 0.5rem 0.9rem;
+  padding: 0.55rem 1rem;
   border-radius: 8px;
-  cursor: pointer;
   font-size: 0.95rem;
-  transition: background 0.2s ease;
-}
-
-nav button:hover {
-  background: #d7d7d7;
-}
-
-nav ul li:last-child {
+  color: white;
   cursor: pointer;
-  font-size: 1rem;
-  padding: 0.4rem 0.6rem;
-  border-radius: 8px;
+  transition: 0.3s ease;
 }
 
-nav ul li:last-child:hover {
-  background: #eaeaea;
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 @media (max-width: 600px) {
@@ -58,7 +48,7 @@ nav ul li:last-child:hover {
     gap: 0.8rem;
   }
 
-  nav ul li:first-child {
+  .logo {
     font-size: 1.2rem;
   }
 }

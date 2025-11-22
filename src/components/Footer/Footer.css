@@ -1,0 +1,15 @@
+.app-footer {
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+  background: inherit;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: auto;
+}
+
+.app-footer p {
+  margin: 0;
+}
