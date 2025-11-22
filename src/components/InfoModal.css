@@ -3,14 +3,18 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40%;
-  height: 40%;
+
+  width: clamp(320px, 60vw, 700px);
+  height: clamp(300px, 60vh, 700px);
+
   padding: 2rem;
   background: #fff;
   border-radius: 12px;
   overflow-y: auto;
+
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   animation: fadeIn 0.2s ease-out;
+
   text-align: center;
 }
 
@@ -45,6 +49,50 @@
 
 .info-modal p:last-child {
   margin-bottom: 1rem;
+}
+
+/* Small tablets & mobile */
+@media (max-width: 600px) {
+  .info-modal {
+    padding: 1.5rem;
+  }
+
+  .info-modal h1 {
+    font-size: 1.8rem;
+  }
+
+  .info-modal h3 {
+    font-size: 1.2rem;
+  }
+
+  .info-modal p,
+  .info-modal li {
+    font-size: 0.95rem;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 400px) {
+  .info-modal {
+    padding: 1rem;
+  }
+
+  .info-modal h1 {
+    font-size: 1.6rem;
+  }
+}
+
+.info-modal h1 {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+}
+
+.info-modal h3 {
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+}
+
+.info-modal p,
+.info-modal li {
+  font-size: clamp(0.9rem, 2vw, 1rem);
 }
 
 .overlay {
