@@ -1,9 +1,10 @@
-import InfoModal from "./components/InfoModal.jsx";
+import "./styles/globals.css";
+import Header from "./components/Header.jsx";
 
 export default function App() {
   return (
     <>
-      <InfoModal />
+      <Header />
     </>
   );
 }
