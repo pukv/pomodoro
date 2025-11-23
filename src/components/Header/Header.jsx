@@ -1,21 +1,20 @@
-import React from "react";
 import "./Header.css";
 
-const Header = () => {
+export default function Header({ onInfoClick, onSettingsClick }) {
   return (
     <header className="header">
       <div className="header-title">
-        <span role="img" aria-label="tomato-icon">
-          🍅
-        </span>
-        <span>PixelDoro</span>
+        🍅 <span>PixelDoro</span>
       </div>
+      <div className="header--buttons">
+        <button className="info-button" onClick={onInfoClick}>
+          ❓
+        </button>
 
-      <button className="settings-button" aria-label="Open settings">
-        ⚙️
-      </button>
+        <button className="settings-button" onClick={onSettingsClick}>
+          ⚙️
+        </button>
+      </div>
     </header>
   );
-};
-
-export default Header;
+}

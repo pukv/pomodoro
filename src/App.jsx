@@ -4,11 +4,13 @@ import { useState } from "react";
 
 import Header from "./components/Header/Header.jsx";
 import InfoModal from "./components/InfoModal/InfoModal.jsx";
+import SettingsModal from "./components/SettingsModal/SettingsModal.jsx";
 import PomodoroTimer from "./components/PomodoroTimer/PomodoroTimer.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 
 export default function App() {
   const [infoOpen, setInfoOpen] = useState(false);
+  const [settingsOpen, setSettingsOpen] = useState(false);
   const [mode, setMode] = useState("pomodoro");
 
   const modeSettings = {
@@ -21,11 +23,16 @@ export default function App() {
 
   return (
     <div className="app-container" style={{ backgroundColor: currentColor }}>
-      <Header onInfoClick={() => setInfoOpen(true)} color={currentColor} />
+      <Header
+        onInfoClick={() => setInfoOpen(true)}
+        color={currentColor}
+        onSettingsClick={() => setSettingsOpen(true)}
+      />
 
       {infoOpen && <InfoModal onClose={() => setInfoOpen(false)} />}
 
-      {/* Timer Frame */}
+      {settingsOpen && <SettingsModal onClose={() => setSettingsOpen(false)} />}
+
       <main className="timer-wrapper">
         <div className="timer-frame">
           <PomodoroTimer mode={mode} setMode={setMode} />
