@@ -1,13 +1,20 @@
 import "./SettingsModal.css";
 import { useState } from "react";
 
-export default function SettingsModal({ onClose, initialValues }) {
-  const [pomodoro, setPomodoro] = useState(initialValues?.pomodoro || 25);
-  const [shortBreak, setShortBreak] = useState(initialValues?.short || 5);
-  const [longBreak, setLongBreak] = useState(initialValues?.long || 15);
+export default function SettingsModal({ onClose, durations, setDurations }) {
+  const [pomodoro, setPomodoro] = useState(durations.pomodoro);
+  const [shortBreak, setShortBreak] = useState(durations.short);
+  const [longBreak, setLongBreak] = useState(durations.long);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    setDurations({
+      pomodoro: Number(pomodoro),
+      short: Number(shortBreak),
+      long: Number(longBreak),
+    });
+
     onClose();
   };
 

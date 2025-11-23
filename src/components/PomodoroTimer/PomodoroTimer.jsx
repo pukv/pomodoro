@@ -1,20 +1,14 @@
 import "./PomodoroTimer.css";
 import { useState, useEffect } from "react";
 
-export default function PomodoroTimer({ mode, setMode }) {
-  const modeSettings = {
-    pomodoro: { duration: 1500, label: "Pomodoro" },
-    short: { duration: 300, label: "Short Break" },
-    long: { duration: 900, label: "Long Break" },
-  };
-
+export default function PomodoroTimer({ mode, setMode, modeSettings }) {
   const [timer, setTimer] = useState(modeSettings[mode].duration);
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
     setTimer(modeSettings[mode].duration);
     setIsRunning(false);
-  }, [mode]);
+  }, [mode, modeSettings]);
 
   useEffect(() => {
     if (!isRunning) return;
