@@ -1,27 +1,21 @@
+import React from "react";
 import "./Header.css";
 
-export default function Header({ onInfoClick, color }) {
+const Header = () => {
   return (
-    <header className="app-header" style={{ backgroundColor: color }}>
-      <nav>
-        <ul>
-          <li className="logo">🍅 Pomodoro Productivity App</li>
+    <header className="header">
+      <div className="header-title">
+        <span role="img" aria-label="tomato-icon">
+          🍅
+        </span>
+        <span>PixelDoro</span>
+      </div>
 
-          <li>
-            <button className="nav-btn" onClick={onInfoClick}>
-              How Pomodoro works
-            </button>
-          </li>
-
-          <li>
-            <button className="nav-btn">Toggle Theme</button>
-          </li>
-
-          <li>
-            <button className="nav-btn">Settings</button>
-          </li>
-        </ul>
-      </nav>
+      <button className="settings-button" aria-label="Open settings">
+        ⚙️
+      </button>
     </header>
   );
-}
+};
+
+export default Header;

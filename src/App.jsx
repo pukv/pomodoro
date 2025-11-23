@@ -1,5 +1,7 @@
 import "./styles/globals.css";
+import "./App.css";
 import { useState } from "react";
+
 import Header from "./components/Header/Header.jsx";
 import InfoModal from "./components/InfoModal/InfoModal.jsx";
 import PomodoroTimer from "./components/PomodoroTimer/PomodoroTimer.jsx";
@@ -15,21 +17,22 @@ export default function App() {
     long: { color: "#457ca3" },
   };
 
+  const currentColor = modeSettings[mode].color;
+
   return (
-    <div
-      className="app-wrapper"
-      style={{ backgroundColor: modeSettings[mode].color }}
-    >
-      <Header
-        onInfoClick={() => setInfoOpen(true)}
-        color={modeSettings[mode].color}
-      />
+    <div className="app-container" style={{ backgroundColor: currentColor }}>
+      <Header onInfoClick={() => setInfoOpen(true)} color={currentColor} />
 
       {infoOpen && <InfoModal onClose={() => setInfoOpen(false)} />}
 
-      <PomodoroTimer mode={mode} setMode={setMode} />
+      {/* Timer Frame */}
+      <main className="timer-wrapper">
+        <div className="timer-frame">
+          <PomodoroTimer mode={mode} setMode={setMode} />
+        </div>
+      </main>
 
-      <Footer color={modeSettings[mode].color} />
+      <Footer color={currentColor} />
     </div>
   );
 }

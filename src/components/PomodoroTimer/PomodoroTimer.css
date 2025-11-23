@@ -1,70 +1,76 @@
 .timer--container {
-  height: calc(100vh - 140px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem;
   text-align: center;
+  font-family: var(--pixel-font);
 }
 
+/* Mode Buttons */
 .controls {
   display: flex;
-  gap: 12px;
   justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
 .control-btn {
-  padding: 10px 20px;
-  border-radius: 8px;
-  background: rgba(0, 0, 0, 0.15);
-  border: none;
-  color: white;
-  font-size: 1rem;
+  background: white;
+  color: #000;
+  border: 3px solid #000;
+  padding: 10px 12px;
   cursor: pointer;
-  transition: 0.25s ease;
-}
+  box-shadow: 4px 4px #000;
 
-.control-btn:hover {
-  background: rgba(0, 0, 0, 0.25);
+  font-size: 12px;
 }
 
 .control-btn.active {
-  background: rgba(0, 0, 0, 0.35);
-  font-weight: bold;
+  background: #000;
+  color: white;
 }
 
+.control-btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: none;
+}
+
+/* Label */
 .mode-label {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: white;
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+/* Timer Display */
+.timer--main {
+  background: white;
+  padding: 20px 30px;
+  border: 4px solid #000;
+  box-shadow: 6px 6px #000;
 }
 
 .timer-display {
-  font-size: 6rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  font-variant-numeric: tabular-nums;
-  color: white;
+  font-size: 48px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* Timer Buttons */
+.timer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .timer-buttons button {
-  margin: 10px;
-  padding: 10px 22px;
-  border-radius: 8px;
-  border: none;
-  font-size: 1rem;
+  background: white;
+  color: #000;
+  border: 3px solid #000;
+  padding: 10px 20px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  transition: 0.25s ease;
-}
-
-.timer-buttons button:hover {
-  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 4px 4px #000;
+  font-size: 14px;
 }
 
 .timer-buttons button:active {
-  transform: scale(0.97);
+  transform: translate(4px, 4px);
+  box-shadow: none;
 }
