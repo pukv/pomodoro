@@ -11,26 +11,29 @@ import Footer from "./components/Footer/Footer.jsx";
 export default function App() {
   const [infoOpen, setInfoOpen] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+
   const [mode, setMode] = useState("pomodoro");
+
   const [customDurations, setCustomDurations] = useState({
     pomodoro: 25,
-    short: 5,
-    long: 15,
+    shortBreak: 5,
+    longBreak: 15,
   });
+
   const modeSettings = {
     pomodoro: {
       color: "#d95550",
       duration: customDurations.pomodoro * 60,
       label: "Pomodoro",
     },
-    short: {
+    shortBreak: {
       color: "#4fa3a5",
-      duration: customDurations.short * 60,
+      duration: customDurations.shortBreak * 60,
       label: "Short Break",
     },
-    long: {
+    longBreak: {
       color: "#457ca3",
-      duration: customDurations.long * 60,
+      duration: customDurations.longBreak * 60,
       label: "Long Break",
     },
   };
@@ -41,7 +44,6 @@ export default function App() {
     <div className="app-container" style={{ backgroundColor: currentColor }}>
       <Header
         onInfoClick={() => setInfoOpen(true)}
-        color={currentColor}
         onSettingsClick={() => setSettingsOpen(true)}
       />
 

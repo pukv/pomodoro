@@ -38,3 +38,11 @@
 .header--buttons {
   margin-left: 1em;
 }
+
+.tomato-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: inline-block;
+  vertical-align: middle;
+}
